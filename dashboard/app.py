@@ -18,7 +18,8 @@ st.write(
 
 @st.cache_data
 def load_data():
-    data = pd.read_csv("hour.csv")
+    base_dir = Path(__file__).resolve().parent.parent
+    data = pd.read_csv(base_dir / "data" / "hour.csv")
     data["dteday"] = pd.to_datetime(data["dteday"])
     return data
 
